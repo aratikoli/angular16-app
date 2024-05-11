@@ -1,0 +1,57 @@
+
+<div class="parent">
+<form  #SingUpForm="ngForm" (ngSubmit)="onAddTask(SingUpForm)">
+
+  <mat-card>
+  <mat-card-content>
+    <mat-form-field appearance="fill">
+        <div style="text-align:center;">
+    <mat-label>
+        Add New Task</mat-label>
+    <input matInput value="newtask" name="newtask" ngModel required>
+    </div>
+  </mat-form-field>
+</mat-card-content>
+<mat-card-content>
+<mat-form-field  appearance="fill">
+  <div style="text-align:center;">
+  <mat-label>Task Description</mat-label>
+  <textarea matInput value="description" name="description" ngModel required></textarea>
+  </div>
+
+</mat-form-field>
+</mat-card-content>
+<mat-card-content>
+  <mat-form-field appearance="fill">
+    <div style="text-align:center;">
+    <mat-label>Select Priority</mat-label>
+    <mat-select ngModel value="priority" name="priority">
+      <mat-option value="High" >High</mat-option>
+      <mat-option value="Medium" >Medium</mat-option>
+      <mat-option value="Low">Low</mat-option>
+    </mat-select>
+    </div>
+    </mat-form-field>
+    </mat-card-content>
+ <mat-card-content>
+  <mat-form-field appearance="fill">
+    <mat-label>Choose a date</mat-label>
+    <input matInput [matDatepicker]="picker" value="date" name="date" ngModel required>
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  </mat-card-content>
+  <mat-card-content>
+  <div class="example-button-row">
+    <button mat-flat-button color="accent" type="submit" [disabled]="!SingUpForm.valid">Add Task</button>
+    </div>
+    </mat-card-content>
+  </mat-card>
+  </form>
+  <div *ngIf="submittedSuccessfully" class="success-message">
+    Task submitted successfully!
+  </div>
+</div>
+
+    

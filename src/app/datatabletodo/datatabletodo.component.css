@@ -1,0 +1,24 @@
+
+  .content {
+    display: flex;
+    flex-direction: column;
+     margin-left: 250px;
+     margin-right: 50px;
+  
+}
+  
+  .mat-elevation-z8 {
+    flex: 1; /* Make the table fill the remaining space */
+    width: 100%; /* Set the table width to 100% */
+  }
+
+  #router-data {
+    display: flex;
+    flex-direction: column;
+    margin-left: 250px;
+     margin-right: 250px;
+     text-align: center;
+     padding-top: 50px;
+  }
+
+  
