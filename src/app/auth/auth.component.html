@@ -1,0 +1,40 @@
+<div class="form-container">
+<div class="parent">
+  <form  #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
+  
+    <mat-card>
+    <mat-card-content>
+      <mat-form-field appearance="fill">
+          <div style="text-align:center;">
+      <mat-label>
+          E-Mail</mat-label>
+      <input matInput type="email" id="email" value="email" name="email" ngModel required email>
+      </div>
+    </mat-form-field>
+  </mat-card-content>
+  <mat-card-content>
+    <mat-form-field appearance="fill">
+        <div style="text-align:center;">
+    <mat-label>
+        Password</mat-label>
+    <input matInput type="password" id="password" value="password" name="password" ngModel required>
+    </div>
+  </mat-form-field>
+</mat-card-content>
+    <mat-card-content>
+    <div class="example-button-row">
+      <button mat-flat-button color="accent" type="submit" [disabled]="!authForm.valid">
+        {{isLoginMode? 'Login':'Sign Up'}}
+    </button>|
+     <button mat-flat-button color="accent" (click)="onSwitchMode()" type="button">
+        Switch to {{isLoginMode? 'Sign Up' :'Login'}}
+    </button>
+      </div>
+      </mat-card-content>
+    </mat-card>
+    </form>
+  </div>
+  </div>
+  
+      
+  

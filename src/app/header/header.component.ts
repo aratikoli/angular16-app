@@ -1,20 +1,30 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import { AsyncPipe, NgIf } from '@angular/common';
 import { DataStorageService } from '../data-storage.service';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit,OnDestroy {
+  private userSub:Subscription;
+  isAuthenticated=false;
   image='assets/purple.jpg';
-  constructor(private dataStorageService:DataStorageService )
+
+  constructor(private dataStorageService:DataStorageService, private authService:AuthService )
   {
 
+  }
+  ngOnInit(): void {
+    
+      this.userSub= this.authService.user.subscribe(user=>{
+         this.isAuthenticated=!!user;
+       });
+     
   }
   private breakpointObserver = inject(BreakpointObserver);
 
@@ -33,5 +43,8 @@ export class HeaderComponent {
     onSaveData()
     {
       this.dataStorageService.saveData();
+    }
+    ngOnDestroy(): void {
+      this.userSub.unsubscribe;
     }
 }

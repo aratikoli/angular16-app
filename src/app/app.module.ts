@@ -28,7 +28,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TaskeditComponent } from './taskedit/taskedit.component';
 import { DataTableToDo } from './datatabletodo/datatabletodo.component';
-
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,8 @@ import { DataTableToDo } from './datatabletodo/datatabletodo.component';
     HeaderComponent,
     NewTaskComponent,
     DataTableToDo,
-    TaskeditComponent
+    TaskeditComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
