@@ -23,6 +23,7 @@ export class DataTableToDo implements OnInit{
         .subscribe(
           (tasks: Task[]) => {
             this.tasks = tasks;
+            console.log(this.tasks);
           }
         );
       this.tasks = this.taskDataService.getTasks();
